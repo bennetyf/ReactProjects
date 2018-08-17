@@ -86,10 +86,12 @@ module.exports = {
             }
           }
         ]
-      }
+      },
       // {
-      //     test: /\.jsx?$$/,
-      //     loader: 'eslint-loader',
+      //     test: /\.jsx?$/,
+      //     use: [
+      //       {loader: 'eslint-loader'}
+      //       ],
       //     enforce: "pre"
       // }
     ]
