@@ -1,0 +1,12 @@
+{
+  "name": "ReactProjects",
+  "version": "1.0.0",
+  "dependencies": {
+    "react": "latest",
+    "prop-types": "latest"
+  },
+  "scripts": {
+    "build": "webpack",
+    "dev": "webpack-dev-server --hot"
+  }
+}
