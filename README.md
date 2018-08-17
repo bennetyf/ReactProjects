@@ -1,3 +1,5 @@
 ## React Projects
 
-This repository includes some react projects.
+#### Some React Projects for Practicing
+
+- This repository includes some react projects.
