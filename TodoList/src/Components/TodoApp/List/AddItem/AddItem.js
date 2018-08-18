@@ -1,7 +1,8 @@
 import React from 'react';
-import {addTodo} from "../actions";
-import {connect} from 'react-redux';
+import {connect} from "react-redux";
+import {addTodo} from "../../Actions/ListActions";
 
+// Presentational Component
 class AddItem extends React.Component {
   constructor(props) {
     super(props);
@@ -30,6 +31,13 @@ class AddItem extends React.Component {
     input.value = '';
   }
 }
+
+// Wrap it up with a container
+// const mapStateToProps = (state) => {
+//   return {
+//     itemlist: state.todos
+//   }
+// };
 
 const mapDispatchToProps = (dispatch) => {
   return {

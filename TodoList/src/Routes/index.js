@@ -1,12 +1,12 @@
 import React from 'react';
-import {Router, Route, IndexRoute, hashHistory} from 'react-router';
-
+import {HashRouter as Router, Route} from 'react-router-dom';
 import TodoApp from '../Views/TodoApp';
 
-const routes = (
-  <Router history={hashHistory}>
+const Routes = () => {
+  return (
+  <Router>
     <Route path="/" component={TodoApp}/>
-  </Router>
-);
+  </Router>);
+};
 
-export default routes;
+export default Routes;

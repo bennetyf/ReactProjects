@@ -3,7 +3,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
-const ROOT_PATH = path.resolve(__dirname,'Up_and_Running');
+const ROOT_PATH = path.resolve(__dirname,'TodoList');
 const APP_PATH = path.resolve(ROOT_PATH, 'src');
 const BUILD_PATH = path.resolve(ROOT_PATH, 'build');
 const CONTENT_PATH = path.resolve(ROOT_PATH, 'contents');

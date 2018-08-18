@@ -1,11 +1,10 @@
 import {createStore, combineReducers} from 'redux';
-import {reducer as todoReducer} from '../Components/TodoApp/todos/index';
-import {reducer as filterReducer} from '../Components/TodoApp/filter/index';
+import {ListReducer} from '../Components/TodoApp/List/ListReducer';
+import {FilterReducer} from '../Components/TodoApp/Filter/FilterReducer';
 
 const reducer = combineReducers({
-  todos: todoReducer,
-  filter: filterReducer
+  todos: ListReducer,
+  filter: FilterReducer
 });
 
-const Store = createStore(reducer);
-export default Store;
+export default createStore(reducer);
