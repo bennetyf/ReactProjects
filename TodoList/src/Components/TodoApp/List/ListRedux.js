@@ -34,7 +34,7 @@ const ListReducer = (state=[], action) => {
     case TOGGLE: {
       return state.map((item)=>{
         if(item.id === action.id){
-          return Object.assign({}, item, {completed: !item.completed});
+          return { ...item, completed: !item.completed };
         }else{
           return item;
         }
