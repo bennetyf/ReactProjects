@@ -1,10 +1,4 @@
-import {createStore, combineReducers} from 'redux';
-import {ListReducer} from '../Components/TodoApp/List/ListReducer';
-import {FilterReducer} from '../Components/TodoApp/Filter/FilterReducer';
+import {createStore} from 'redux';
+import {todoapp_reducer} from '../Views/TodoAppRedux';
 
-const reducer = combineReducers({
-  todos: ListReducer,
-  filter: FilterReducer
-});
-
-export default createStore(reducer);
+export default createStore(todoapp_reducer);

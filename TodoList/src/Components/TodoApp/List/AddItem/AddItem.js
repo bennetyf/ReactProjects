@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from "react-redux";
-import {addTodo} from "../../Actions/ListActions";
+import {addTodo} from "../ListRedux";
 
 // Presentational Component
 class AddItem extends React.Component {
@@ -33,12 +33,6 @@ class AddItem extends React.Component {
 }
 
 // Wrap it up with a container
-// const mapStateToProps = (state) => {
-//   return {
-//     itemlist: state.todos
-//   }
-// };
-
 const mapDispatchToProps = (dispatch) => {
   return {
     addItem: (text) => {

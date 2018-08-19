@@ -1,5 +1,5 @@
 import React from 'react';
-import {toggleTodo, removeTodo} from "../../Actions/ListActions";
+import {toggleTodo, removeTodo} from "../ListRedux";
 import {connect} from 'react-redux';
 
 // Presentational Component

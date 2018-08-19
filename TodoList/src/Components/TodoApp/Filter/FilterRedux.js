@@ -1,5 +1,13 @@
-import {SET_FILTER} from "../Actions/FilterActions";
 import {Filtertypes} from "./Filtertypes";
+
+const SET_FILTER = 'SET_FILTER';
+
+const setFilter = (filter) => {
+  return {
+    type: SET_FILTER,
+    filter: filter
+  }
+};
 
 const FilterReducer = (state = Filtertypes.ALL, action) => {
   switch(action.type) {
@@ -11,4 +19,4 @@ const FilterReducer = (state = Filtertypes.ALL, action) => {
   }
 };
 
-export {FilterReducer};
+export {SET_FILTER, setFilter, FilterReducer};

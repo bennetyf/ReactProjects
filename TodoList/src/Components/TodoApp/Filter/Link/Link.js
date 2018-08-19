@@ -1,5 +1,5 @@
 import React from "react";
-import {setFilter} from "../../Actions/FilterActions";
+import {setFilter} from "../FilterRedux";
 import {connect} from "react-redux";
 
 const Link = ({active, children, onClick}) => {

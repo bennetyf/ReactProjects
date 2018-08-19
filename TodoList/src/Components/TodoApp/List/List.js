@@ -4,6 +4,8 @@ import AddItem from './AddItem/AddItem';
 import {Filtertypes} from '../Filter/Filtertypes';
 import {connect} from "react-redux";
 
+import './style.css';
+
 const List = ({todos}) => {
   return (
     <div className="todos">
