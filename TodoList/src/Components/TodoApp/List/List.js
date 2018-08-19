@@ -1,27 +1,37 @@
 import React from 'react';
 import Item from "./Item/Item";
 import AddItem from './AddItem/AddItem';
-import {Filtertypes} from '../Filter/Filtertypes';
+import {Filtertypes} from '../Filter/FilterRedux';
 import {connect} from "react-redux";
 
 import './style.css';
 
-const List = ({todos}) => {
+const List = ({filtered_todos}) => {
   return (
     <div className="todos">
       <AddItem />
       <ul className="todo-list">
         {
-          todos.map((item) => {
+          Object.keys(filtered_todos).reverse().map(iid => {
             return (
               <Item
-                key={item.id}
-                text={item.text}
-                completed={item.completed}
-                id = {item.id}
+                key = {iid}
+                text = {filtered_todos[iid].text}
+                completed = {filtered_todos[iid].completed}
+                id = {iid}
               />
             );
           })
+          // filtered_todos.map((item) => {
+          //   return (
+          //     <Item
+          //       key={item.id}
+          //       text={item.text}
+          //       completed={item.completed}
+          //       id = {item.id}
+          //     />
+          //   );
+          // })
         }
       </ul>
     </div>
@@ -30,14 +40,22 @@ const List = ({todos}) => {
 
 const mapStateToProps = (state) => {
   return {
-    todos: ((todos, filter) => {
+    filtered_todos: ((todos, filter) => {
+      // const items = todos.items;
+      // const ids = todos.ids;
       switch(filter){
         case Filtertypes.ALL:
           return todos;
         case Filtertypes.COMPLETED:
-          return todos.filter(item => item.completed);
+          return Object.keys(todos)
+                  .filter(key => todos[key].completed)
+                  .reduce((obj,key) => {obj[key] = todos[key]; return obj;},{});
+          // return .filter(item => item.completed);
         case Filtertypes.UNCOMPLETED:
-          return todos.filter(item => !item.completed);
+          return Object.keys(todos)
+            .filter(key => !todos[key].completed)
+            .reduce((obj,key) => {obj[key] = todos[key]; return obj;},{});
+          // return todos.filter(item => !item.completed);
         default:
           throw new Error('Unsupported Filter Type');
       }

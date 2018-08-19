@@ -1,49 +1,59 @@
+import cuid from 'cuid';
+
 // Action Type Definitions
 const ADD = 'ADD';
 const TOGGLE = 'TOGGLE';
 const REMOVE = 'REMOVE';
 
 // Action Creator Definitions
-let nextTodoId = 0;
 const addTodo = (text) => ({
   type: ADD,
-  id: nextTodoId++,
-  text: text,
-  completed: false
+  payload: {
+    id: cuid(),
+    text: text,
+    completed: false
+  }
 });
 
 const toggleTodo = (id) => ({
   type: TOGGLE,
-  id: id
+  payload: {
+    id: id
+  }
 });
 
 const removeTodo = (id) => ({
   type: REMOVE,
-  id: id
+  payload: {
+    id: id
+  }
 });
 
-const ListReducer = (state=[], action) => {
-  switch (action.type) {
+// Reducer for the todos sub-tree
+const ListReducer = (state={}, action) => {
+  const {type, payload} = action;
+  switch (type) {
     case ADD: {
-      if (action.type === ADD){
-        return [{id:action.id, text:action.text, completed:false}, ...state];
-      } else {
-        return state;
-      }
+      console.log({...state});
+      return { ...state, [payload.id]: {id: payload.id, text: payload.text, completed: false}};
     }
     case TOGGLE: {
-      return state.map((item)=>{
-        if(item.id === action.id){
-          return { ...item, completed: !item.completed };
-        }else{
-          return item;
-        }
-      })
+      return {...state, [payload.id]:{...state[payload.id], completed: !state[payload.id].completed}};
+      // return state.map((item)=>{
+      //   if(item.id === action.id){
+      //     return { ...item, completed: !item.completed };
+      //   }else{
+      //     return item;
+      //   }
+      // })
     }
     case REMOVE: {
-      return state.filter((item) => {
-        return item.id !== action.id;
-      })
+      let obj = {...state};
+      delete obj[payload.id];
+      return obj;
+      // return state.filter((item) => {
+      //   return item.id !== action.id;
+      // })
     }
     default: {
       return state;

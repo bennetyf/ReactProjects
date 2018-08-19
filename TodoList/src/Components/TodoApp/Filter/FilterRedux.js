@@ -1,22 +1,30 @@
-import {Filtertypes} from "./Filtertypes";
+const Filtertypes = {
+  ALL:'All',
+  COMPLETED:'Completed',
+  UNCOMPLETED:'Uncompleted'
+};
 
 const SET_FILTER = 'SET_FILTER';
 
+// Action Creator
 const setFilter = (filter) => {
   return {
     type: SET_FILTER,
-    filter: filter
+    payload: {
+      filter: filter
+    }
   }
 };
 
 const FilterReducer = (state = Filtertypes.ALL, action) => {
-  switch(action.type) {
+  const {type, payload} = action;
+  switch(type) {
     case SET_FILTER:{
-      return action.filter;
+      return payload.filter;
     }
     default:
       return state;
   }
 };
 
-export {SET_FILTER, setFilter, FilterReducer};
+export {Filtertypes, SET_FILTER, setFilter, FilterReducer};

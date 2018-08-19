@@ -1,4 +1,4 @@
-import {Filtertypes} from "./Filtertypes";
+import {Filtertypes} from "./FilterRedux";
 import Link from "./Link/Link";
 import React from "react";
 import "./style.css";
