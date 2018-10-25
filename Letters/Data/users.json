@@ -1,0 +1,27 @@
+{
+  "collection": "Person",
+  "user1": {
+    "name" : "mahesh",
+    "height": 170,
+    "profession" : "teacher",
+    "id": 1
+  },
+  "user2" : {
+    "name" : "suresh",
+    "height": 160,
+    "profession" : "librarian",
+    "id": 2
+  },
+  "user3" : {
+    "name" : "ramesh",
+    "height": 180,
+    "profession" : "clerk",
+    "id": 3
+  },
+  "user4":{
+    "name": "travis",
+    "height": 174,
+    "profession": "student",
+    "id": 4
+  }
+}
