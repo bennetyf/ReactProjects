@@ -1,14 +1,15 @@
-import {Filtertypes} from "./Filtertypes";
+import {Filtertypes} from "./FilterRedux";
 import Link from "./Link/Link";
 import React from "react";
+import "./style.css";
 
 const Filters = () => {
   return (
-    <p className="filters">
+    <div className="filters">
       <Link filter={Filtertypes.ALL}> {Filtertypes.ALL} </Link>
       <Link filter={Filtertypes.COMPLETED}> {Filtertypes.COMPLETED} </Link>
       <Link filter={Filtertypes.UNCOMPLETED}> {Filtertypes.UNCOMPLETED} </Link>
-    </p>
+    </div>
   );
 };
 

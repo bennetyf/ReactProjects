@@ -39,15 +39,7 @@ module.exports = {
       //CSS Loaders
       {
         test: /\.(css|scss)$/,
-        use: [
-          {loader: 'style-loader'},
-          {
-            loader: 'css-loader',
-            options: {
-              modules: true
-            }
-          }
-        ]
+        use: ['style-loader','css-loader']
       },
       //JS and JSX Loaders
       {
